@@ -1,0 +1,193 @@
+{
+  "disclaimer": "RecoveryIQ's Stage 5B model is trained and evaluated on synthetic recovery episodes because production merchant subscription-failure histories are unavailable. The dataset generator and assumptions are published. Model metrics and recovery probabilities are simulation results and must not be interpreted as real-world merchant performance.",
+  "dataset": {
+    "version": "synthetic-recovery-v1",
+    "episodeCount": 5000,
+    "trainCount": 4000,
+    "testCount": 1000,
+    "positiveOutcomeRate": 0.428,
+    "randomSeed": 42
+  },
+  "model": {
+    "version": "logistic-v1",
+    "type": "sklearn.linear_model.LogisticRegression",
+    "featureCount": 76,
+    "topAbsoluteCoefficients": [
+      {
+        "feature": "failureCategory=BANK_OR_NETWORK|candidateAction=WAIT_NATIVE_RETRY",
+        "coefficient": 1.246838
+      },
+      {
+        "feature": "failureCategory=PAYMENT_METHOD_INVALID|candidateAction=REQUEST_CARD_UPDATE",
+        "coefficient": 1.100186
+      },
+      {
+        "feature": "failureCategory=PAYMENT_METHOD_INVALID|candidateAction=WAIT_NATIVE_RETRY",
+        "coefficient": -0.954437
+      },
+      {
+        "feature": "failureCategory=BANK_OR_NETWORK|candidateAction=REQUEST_CARD_UPDATE",
+        "coefficient": -0.901466
+      },
+      {
+        "feature": "candidateAction=SEND_NUDGE|previousNudges>=2",
+        "coefficient": -0.767055
+      },
+      {
+        "feature": "candidateAction=WAIT_NATIVE_RETRY|nativeRetryPossible=1",
+        "coefficient": 0.65922
+      },
+      {
+        "feature": "failureCategory=MANDATE_OR_AUTH_INVALID",
+        "coefficient": -0.646215
+      },
+      {
+        "feature": "candidateAction=WAIT_NATIVE_RETRY|halted=1",
+        "coefficient": -0.608091
+      },
+      {
+        "feature": "failureCategory=MANDATE_OR_AUTH_INVALID|candidateAction=WAIT_NATIVE_RETRY",
+        "coefficient": -0.575116
+      },
+      {
+        "feature": "failureCategory=TEMPORARY_FUNDS",
+        "coefficient": 0.544673
+      },
+      {
+        "feature": "failureCategory=CUSTOMER_AUTH_FAILURE|candidateAction=SEND_NUDGE",
+        "coefficient": 0.469202
+      },
+      {
+        "feature": "candidateAction=STOP_AND_ESCALATE",
+        "coefficient": -0.458778
+      },
+      {
+        "feature": "candidateAction=STOP_AND_ESCALATE|nativeRetryPossible=1",
+        "coefficient": -0.442614
+      },
+      {
+        "feature": "failureCategory=TEMPORARY_FUNDS|candidateAction=SEND_NUDGE",
+        "coefficient": 0.441425
+      },
+      {
+        "feature": "failureCategory=TEMPORARY_FUNDS|candidateAction=WAIT_NATIVE_RETRY",
+        "coefficient": 0.434016
+      }
+    ]
+  },
+  "globalMetrics": {
+    "accuracy": 0.68,
+    "precision": 0.666667,
+    "recall": 0.504673,
+    "f1": 0.574468,
+    "rocAuc": 0.73552,
+    "logLoss": 0.592405,
+    "brierScore": 0.203838
+  },
+  "perActionMetrics": {
+    "REQUEST_CARD_UPDATE": {
+      "sampleCount": 242,
+      "actualRecoveryRate": 0.475207,
+      "meanPredictedProbability": 0.405632,
+      "brierScore": 0.223313
+    },
+    "SEND_NUDGE": {
+      "sampleCount": 256,
+      "actualRecoveryRate": 0.386719,
+      "meanPredictedProbability": 0.445922,
+      "brierScore": 0.203309
+    },
+    "STOP_AND_ESCALATE": {
+      "sampleCount": 186,
+      "actualRecoveryRate": 0.231183,
+      "meanPredictedProbability": 0.238731,
+      "brierScore": 0.169364
+    },
+    "WAIT_NATIVE_RETRY": {
+      "sampleCount": 316,
+      "actualRecoveryRate": 0.541139,
+      "meanPredictedProbability": 0.526788,
+      "brierScore": 0.209644
+    }
+  },
+  "calibration": [
+    {
+      "bucket": "0.0-0.1",
+      "sampleCount": 27,
+      "meanPredictedProbability": 0.070802,
+      "actualRecoveryRate": 0.111111
+    },
+    {
+      "bucket": "0.1-0.2",
+      "sampleCount": 124,
+      "meanPredictedProbability": 0.158706,
+      "actualRecoveryRate": 0.08871
+    },
+    {
+      "bucket": "0.2-0.3",
+      "sampleCount": 186,
+      "meanPredictedProbability": 0.254111,
+      "actualRecoveryRate": 0.322581
+    },
+    {
+      "bucket": "0.3-0.4",
+      "sampleCount": 207,
+      "meanPredictedProbability": 0.347813,
+      "actualRecoveryRate": 0.386473
+    },
+    {
+      "bucket": "0.4-0.5",
+      "sampleCount": 132,
+      "meanPredictedProbability": 0.453528,
+      "actualRecoveryRate": 0.439394
+    },
+    {
+      "bucket": "0.5-0.6",
+      "sampleCount": 107,
+      "meanPredictedProbability": 0.546576,
+      "actualRecoveryRate": 0.514019
+    },
+    {
+      "bucket": "0.6-0.7",
+      "sampleCount": 66,
+      "meanPredictedProbability": 0.644072,
+      "actualRecoveryRate": 0.681818
+    },
+    {
+      "bucket": "0.7-0.8",
+      "sampleCount": 70,
+      "meanPredictedProbability": 0.749716,
+      "actualRecoveryRate": 0.7
+    },
+    {
+      "bucket": "0.8-0.9",
+      "sampleCount": 70,
+      "meanPredictedProbability": 0.840404,
+      "actualRecoveryRate": 0.814286
+    },
+    {
+      "bucket": "0.9-1.0",
+      "sampleCount": 11,
+      "meanPredictedProbability": 0.924401,
+      "actualRecoveryRate": 0.909091
+    }
+  ],
+  "heuristicComparison": {
+    "sameHeldOutRows": true,
+    "logistic": {
+      "rocAuc": 0.73552,
+      "logLoss": 0.592405,
+      "brierScore": 0.203838
+    },
+    "heuristic": {
+      "rocAuc": 0.659785,
+      "logLoss": 0.747389,
+      "brierScore": 0.242258
+    }
+  },
+  "limitations": [
+    "All episodes and outcomes are synthetic simulation data.",
+    "No merchant production outcomes or causal treatment effects were used.",
+    "Per-action estimates are predictive simulation results, not permitted-action decisions or revenue uplift."
+  ]
+}

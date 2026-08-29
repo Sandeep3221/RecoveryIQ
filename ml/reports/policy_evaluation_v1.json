@@ -1,0 +1,357 @@
+{
+  "evaluationVersion": "policy-eval-v1",
+  "datasetVersion": "synthetic-policy-eval-v1",
+  "modelVersion": "logistic-v1",
+  "policyVersion": "policy-v1",
+  "seed": 4242,
+  "episodeCount": 10000,
+  "datasetHash": "d25444880ae3a1dbbdbbba689f1a9c064b0fe778fb06a7d8f5ce3452cd22e24a",
+  "generatedAt": "2026-01-01T00:00:00.000Z",
+  "disclaimer": "All figures are synthetic simulation results and do not represent actual merchant uplift.",
+  "strategies": {
+    "RECOVERYIQ_LOGISTIC_POLICY": {
+      "episodes": 10000,
+      "totalRevenueAtRiskMinor": 875520000,
+      "expectedRecoveredRevenueMinor": 479764242,
+      "realizedRecoveredRevenueMinor": 480769300,
+      "expectedRevenueRecoveryRate": 0.5479763363336961,
+      "realizedRevenueRecoveryRate": 0.5491242918494152,
+      "expectedRecoveredCases": 5504.847994158221,
+      "realizedRecoveredCases": 5507,
+      "realizedCaseRecoveryRate": 0.5507,
+      "actionDistribution": {
+        "WAIT_NATIVE_RETRY": 4086,
+        "SEND_NUDGE": 1860,
+        "REQUEST_CARD_UPDATE": 1762,
+        "STOP_AND_ESCALATE": 2292
+      },
+      "nudgesSelected": 1860,
+      "cardUpdatesSelected": 1762,
+      "totalCustomerInterventions": 3622,
+      "customerInterventionsPer100Cases": 36.22,
+      "perCategory": {
+        "BANK_OR_NETWORK": {
+          "caseCount": 1964,
+          "expectedRecoveryRate": 0.6432671103464919,
+          "realizedRecoveryRate": 0.6435845213849287,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "CUSTOMER_AUTH_FAILURE": {
+          "caseCount": 1491,
+          "expectedRecoveryRate": 0.5387212975561316,
+          "realizedRecoveryRate": 0.5392354124748491,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "MANDATE_OR_AUTH_INVALID": {
+          "caseCount": 994,
+          "expectedRecoveryRate": 0.14974553366453627,
+          "realizedRecoveryRate": 0.14688128772635814,
+          "dominantSelectedAction": "STOP_AND_ESCALATE"
+        },
+        "PAYMENT_METHOD_INVALID": {
+          "caseCount": 1810,
+          "expectedRecoveryRate": 0.6604759067301273,
+          "realizedRecoveryRate": 0.6729281767955801,
+          "dominantSelectedAction": "REQUEST_CARD_UPDATE"
+        },
+        "TEMPORARY_FUNDS": {
+          "caseCount": 2500,
+          "expectedRecoveryRate": 0.6465773849618598,
+          "realizedRecoveryRate": 0.6348,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "UNKNOWN": {
+          "caseCount": 1241,
+          "expectedRecoveryRate": 0.3847590819764693,
+          "realizedRecoveryRate": 0.39323126510878326,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        }
+      },
+      "perStatus": {
+        "halted": {
+          "caseCount": 2239,
+          "expectedRecoveryRate": 0.44080508106027144,
+          "realizedRecoveryRate": 0.43992853952657435,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "pending": {
+          "caseCount": 7761,
+          "expectedRecoveryRate": 0.5821267127514849,
+          "realizedRecoveryRate": 0.5826568741141606,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        }
+      }
+    },
+    "HEURISTIC_POLICY": {
+      "episodes": 10000,
+      "totalRevenueAtRiskMinor": 875520000,
+      "expectedRecoveredRevenueMinor": 472462511,
+      "realizedRecoveredRevenueMinor": 473557500,
+      "expectedRevenueRecoveryRate": 0.5396364570971717,
+      "realizedRevenueRecoveryRate": 0.5408871299342105,
+      "expectedRecoveredCases": 5419.08484450253,
+      "realizedRecoveredCases": 5425,
+      "realizedCaseRecoveryRate": 0.5425,
+      "actionDistribution": {
+        "WAIT_NATIVE_RETRY": 2615,
+        "SEND_NUDGE": 3320,
+        "REQUEST_CARD_UPDATE": 1762,
+        "STOP_AND_ESCALATE": 2303
+      },
+      "nudgesSelected": 3320,
+      "cardUpdatesSelected": 1762,
+      "totalCustomerInterventions": 5082,
+      "customerInterventionsPer100Cases": 50.82,
+      "perCategory": {
+        "BANK_OR_NETWORK": {
+          "caseCount": 1964,
+          "expectedRecoveryRate": 0.6428743909315505,
+          "realizedRecoveryRate": 0.6435845213849287,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "CUSTOMER_AUTH_FAILURE": {
+          "caseCount": 1491,
+          "expectedRecoveryRate": 0.5459489249178351,
+          "realizedRecoveryRate": 0.5479543930248155,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "MANDATE_OR_AUTH_INVALID": {
+          "caseCount": 994,
+          "expectedRecoveryRate": 0.14974553366453627,
+          "realizedRecoveryRate": 0.14688128772635814,
+          "dominantSelectedAction": "STOP_AND_ESCALATE"
+        },
+        "PAYMENT_METHOD_INVALID": {
+          "caseCount": 1810,
+          "expectedRecoveryRate": 0.6604759067301273,
+          "realizedRecoveryRate": 0.6729281767955801,
+          "dominantSelectedAction": "REQUEST_CARD_UPDATE"
+        },
+        "TEMPORARY_FUNDS": {
+          "caseCount": 2500,
+          "expectedRecoveryRate": 0.6085823264636758,
+          "realizedRecoveryRate": 0.5968,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "UNKNOWN": {
+          "caseCount": 1241,
+          "expectedRecoveryRate": 0.3841300772419141,
+          "realizedRecoveryRate": 0.39323126510878326,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        }
+      },
+      "perStatus": {
+        "halted": {
+          "caseCount": 2239,
+          "expectedRecoveryRate": 0.44011196100376054,
+          "realizedRecoveryRate": 0.43992853952657435,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "pending": {
+          "caseCount": 7761,
+          "expectedRecoveryRate": 0.571276145318271,
+          "realizedRecoveryRate": 0.572091225357557,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        }
+      }
+    },
+    "NAIVE_RETRY_FIRST": {
+      "episodes": 10000,
+      "totalRevenueAtRiskMinor": 875520000,
+      "expectedRecoveredRevenueMinor": 392463199,
+      "realizedRecoveredRevenueMinor": 393591900,
+      "expectedRevenueRecoveryRate": 0.44826297438947993,
+      "realizedRevenueRecoveryRate": 0.4495521518640351,
+      "expectedRecoveredCases": 4498.440629385372,
+      "realizedRecoveredCases": 4481,
+      "realizedCaseRecoveryRate": 0.4481,
+      "actionDistribution": {
+        "WAIT_NATIVE_RETRY": 5914,
+        "SEND_NUDGE": 0,
+        "REQUEST_CARD_UPDATE": 0,
+        "STOP_AND_ESCALATE": 4086
+      },
+      "nudgesSelected": 0,
+      "cardUpdatesSelected": 0,
+      "totalCustomerInterventions": 0,
+      "customerInterventionsPer100Cases": 0,
+      "perCategory": {
+        "BANK_OR_NETWORK": {
+          "caseCount": 1964,
+          "expectedRecoveryRate": 0.5947723478731005,
+          "realizedRecoveryRate": 0.5911405295315683,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "CUSTOMER_AUTH_FAILURE": {
+          "caseCount": 1491,
+          "expectedRecoveryRate": 0.437420891422474,
+          "realizedRecoveryRate": 0.42857142857142855,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "MANDATE_OR_AUTH_INVALID": {
+          "caseCount": 994,
+          "expectedRecoveryRate": 0.24685259516460956,
+          "realizedRecoveryRate": 0.24647887323943662,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "PAYMENT_METHOD_INVALID": {
+          "caseCount": 1810,
+          "expectedRecoveryRate": 0.30183678455522617,
+          "realizedRecoveryRate": 0.3116022099447514,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "TEMPORARY_FUNDS": {
+          "caseCount": 2500,
+          "expectedRecoveryRate": 0.5573715216434523,
+          "realizedRecoveryRate": 0.546,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        },
+        "UNKNOWN": {
+          "caseCount": 1241,
+          "expectedRecoveryRate": 0.3972508664822553,
+          "realizedRecoveryRate": 0.40854149879129736,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        }
+      },
+      "perStatus": {
+        "halted": {
+          "caseCount": 2239,
+          "expectedRecoveryRate": 0.23063042317403684,
+          "realizedRecoveryRate": 0.22733363108530594,
+          "dominantSelectedAction": "STOP_AND_ESCALATE"
+        },
+        "pending": {
+          "caseCount": 7761,
+          "expectedRecoveryRate": 0.5130858281018802,
+          "realizedRecoveryRate": 0.5117897178198686,
+          "dominantSelectedAction": "WAIT_NATIVE_RETRY"
+        }
+      }
+    },
+    "NAIVE_NUDGE_FIRST": {
+      "episodes": 10000,
+      "totalRevenueAtRiskMinor": 875520000,
+      "expectedRecoveredRevenueMinor": 396663063,
+      "realizedRecoveredRevenueMinor": 399158200,
+      "expectedRevenueRecoveryRate": 0.45305996810063565,
+      "realizedRevenueRecoveryRate": 0.4559098592836257,
+      "expectedRecoveredCases": 4539.424395155575,
+      "realizedRecoveredCases": 4518,
+      "realizedCaseRecoveryRate": 0.4518,
+      "actionDistribution": {
+        "WAIT_NATIVE_RETRY": 1452,
+        "SEND_NUDGE": 7515,
+        "REQUEST_CARD_UPDATE": 0,
+        "STOP_AND_ESCALATE": 1033
+      },
+      "nudgesSelected": 7515,
+      "cardUpdatesSelected": 0,
+      "totalCustomerInterventions": 7515,
+      "customerInterventionsPer100Cases": 75.15,
+      "perCategory": {
+        "BANK_OR_NETWORK": {
+          "caseCount": 1964,
+          "expectedRecoveryRate": 0.472190086048385,
+          "realizedRecoveryRate": 0.4786150712830957,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "CUSTOMER_AUTH_FAILURE": {
+          "caseCount": 1491,
+          "expectedRecoveryRate": 0.5475992253939389,
+          "realizedRecoveryRate": 0.5466130114017438,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "MANDATE_OR_AUTH_INVALID": {
+          "caseCount": 994,
+          "expectedRecoveryRate": 0.22201669673571753,
+          "realizedRecoveryRate": 0.2243460764587525,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "PAYMENT_METHOD_INVALID": {
+          "caseCount": 1810,
+          "expectedRecoveryRate": 0.34803242805658063,
+          "realizedRecoveryRate": 0.3469613259668508,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "TEMPORARY_FUNDS": {
+          "caseCount": 2500,
+          "expectedRecoveryRate": 0.6065929980551835,
+          "realizedRecoveryRate": 0.5972,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "UNKNOWN": {
+          "caseCount": 1241,
+          "expectedRecoveryRate": 0.3452593349061401,
+          "realizedRecoveryRate": 0.33763094278807415,
+          "dominantSelectedAction": "SEND_NUDGE"
+        }
+      },
+      "perStatus": {
+        "halted": {
+          "caseCount": 2239,
+          "expectedRecoveryRate": 0.4016152548345329,
+          "realizedRecoveryRate": 0.396158999553372,
+          "dominantSelectedAction": "SEND_NUDGE"
+        },
+        "pending": {
+          "caseCount": 7761,
+          "expectedRecoveryRate": 0.46903850529326785,
+          "realizedRecoveryRate": 0.46785208091740754,
+          "dominantSelectedAction": "SEND_NUDGE"
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "HEURISTIC_POLICY": {
+      "simulatedExpectedRevenueDeltaMinor": 7301731,
+      "simulatedExpectedRevenueUpliftRate": 0.015454625139559485,
+      "simulatedRealizedRevenueDeltaMinor": 7211800,
+      "simulatedRealizedRevenueUpliftRate": 0.015228984864562381
+    },
+    "NAIVE_RETRY_FIRST": {
+      "simulatedExpectedRevenueDeltaMinor": 87301043,
+      "simulatedExpectedRevenueUpliftRate": 0.22244389594347672,
+      "simulatedRealizedRevenueDeltaMinor": 87177400,
+      "simulatedRealizedRevenueUpliftRate": 0.22149185488827386
+    },
+    "NAIVE_NUDGE_FIRST": {
+      "simulatedExpectedRevenueDeltaMinor": 83101179,
+      "simulatedExpectedRevenueUpliftRate": 0.2095006738754498,
+      "simulatedRealizedRevenueDeltaMinor": 81611100,
+      "simulatedRealizedRevenueUpliftRate": 0.20445803192819287
+    }
+  },
+  "logisticVsHeuristic": {
+    "expectedRevenueDifferenceMinor": 7301731,
+    "realizedRevenueDifferenceMinor": 7211800,
+    "expectedRecoveryRateDifference": 0.008339879236524461,
+    "realizedRecoveryRateDifference": 0.008237161915204738,
+    "customerInterventionDifference": -1460,
+    "actionSelectionDisagreementRate": 0.1482
+  },
+  "policySafety": {
+    "hardRuleDecisionCount": 4493,
+    "modelRankedDecisionCount": 5507,
+    "hardRuleDecisionRate": 0.4493,
+    "modelRankedDecisionRate": 0.5507,
+    "rawModelWinnerBlockedCount": 2969,
+    "rawModelWinnerBlockedRate": 0.2969,
+    "reasonBreakdown": {
+      "MANDATE_INVALID": 969,
+      "PAYMENT_METHOD_REQUIRES_UPDATE": 1762,
+      "MODEL_SELECTED_BEST_ALLOWED_ACTION": 5097,
+      "REPEATED_UNKNOWN_FAILURE": 272,
+      "ACTIVE_PAYMENT_DOWNTIME": 559,
+      "NATIVE_RETRY_AVAILABLE": 477,
+      "CUSTOMER_ACTION_HELPFUL": 410,
+      "NATIVE_RETRIES_EXHAUSTED": 152,
+      "CASE_TOO_OLD": 302
+    }
+  },
+  "productionInvocations": {
+    "logisticScorer": 10000,
+    "heuristicScorer": 10000,
+    "policyEngine": 20000
+  }
+}

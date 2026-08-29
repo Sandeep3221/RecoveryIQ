@@ -1,0 +1,27 @@
+import cors from "cors";
+import express from "express";
+import { env } from "./config/env.js";
+import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
+import { healthRouter } from "./routes/health.js";
+import { plansRouter } from "./routes/plans.js";
+import { subscriptionsRouter } from "./routes/subscriptions.js";
+import { razorpayWebhooksRouter } from "./routes/razorpayWebhooks.js";
+import { recoveryCasesRouter } from "./routes/recoveryCases.js";
+import { recoveryCardUpdateRouter } from "./routes/recoveryCardUpdate.js";
+import { recoveryMetricsRouter } from "./routes/recoveryMetrics.js";
+import { evaluationRouter } from "./routes/evaluation.js";
+
+export const app = express();
+app.disable("x-powered-by");
+app.use(cors({ origin: env.CLIENT_URL }));
+app.use("/api/webhooks/razorpay", express.raw({ type: "application/json", limit: "1mb" }), razorpayWebhooksRouter);
+app.use(express.json({ limit: "1mb" }));
+app.use("/health", healthRouter);
+app.use("/api/v1/plans", plansRouter);
+app.use("/api/v1/subscriptions", subscriptionsRouter);
+app.use("/api/v1/recovery-cases", recoveryCasesRouter);
+app.use("/api/v1/recovery/card-update", recoveryCardUpdateRouter);
+app.use("/api/v1/recovery-metrics", recoveryMetricsRouter);
+app.use("/api/v1/evaluation", evaluationRouter);
+app.use(notFoundHandler);
+app.use(errorHandler);

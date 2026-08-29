@@ -1,0 +1,218 @@
+{
+  "modelVersion": "logistic-v1",
+  "tolerance": 1e-06,
+  "fixtures": [
+    {
+      "name": "unknown-card-pending-downtime",
+      "context": {
+        "caseId": "parity_1",
+        "subscription": {
+          "id": "sub_1",
+          "status": "pending",
+          "amountMinor": 69900,
+          "ageDays": 12,
+          "nativeRetryPossible": true
+        },
+        "failure": {
+          "category": "UNKNOWN",
+          "reason": null,
+          "source": null,
+          "step": null,
+          "paymentMethod": "card",
+          "failureCount": 1,
+          "consecutiveFailureCount": 1
+        },
+        "customerHistory": {
+          "previousSuccessfulPayments": 0,
+          "previousFailedPayments": 1,
+          "previousRecoveredPayments": 0,
+          "previousRecoveryRate": 0.0,
+          "previousNudges": 0,
+          "hoursSinceLastNudge": null
+        },
+        "diagnosis": {
+          "classifierVersion": "classifier-v1",
+          "confidence": "LOW",
+          "explanation": "Parity"
+        },
+        "downtime": {
+          "checked": true,
+          "active": true,
+          "method": "card",
+          "severity": "high",
+          "matchLevel": "EXACT"
+        },
+        "caseState": {
+          "caseAgeHours": 1.5,
+          "revenueAtRiskMinor": 69900,
+          "previousActions": []
+        }
+      },
+      "expectedProbabilities": {
+        "WAIT_NATIVE_RETRY": 0.64880761668153,
+        "SEND_NUDGE": 0.38927024378145525,
+        "REQUEST_CARD_UPDATE": 0.3440096885547221,
+        "STOP_AND_ESCALATE": 0.23808155995990313
+      }
+    },
+    {
+      "name": "invalid-card-halted",
+      "context": {
+        "caseId": "parity_2",
+        "subscription": {
+          "id": "sub_2",
+          "status": "halted",
+          "amountMinor": 149900,
+          "ageDays": 240,
+          "nativeRetryPossible": false
+        },
+        "failure": {
+          "category": "PAYMENT_METHOD_INVALID",
+          "reason": "card_expired",
+          "source": "customer",
+          "step": "payment_authentication",
+          "paymentMethod": "card",
+          "failureCount": 4,
+          "consecutiveFailureCount": 3
+        },
+        "customerHistory": {
+          "previousSuccessfulPayments": 8,
+          "previousFailedPayments": 4,
+          "previousRecoveredPayments": 1,
+          "previousRecoveryRate": 0.25,
+          "previousNudges": 2,
+          "hoursSinceLastNudge": 48
+        },
+        "diagnosis": {
+          "classifierVersion": "classifier-v1",
+          "confidence": "HIGH",
+          "explanation": "Parity"
+        },
+        "downtime": {
+          "checked": true,
+          "active": false,
+          "method": "card",
+          "severity": null,
+          "matchLevel": "NONE"
+        },
+        "caseState": {
+          "caseAgeHours": 36,
+          "revenueAtRiskMinor": 149900,
+          "previousActions": []
+        }
+      },
+      "expectedProbabilities": {
+        "WAIT_NATIVE_RETRY": 0.04656962799480093,
+        "SEND_NUDGE": 0.15429401028711737,
+        "REQUEST_CARD_UPDATE": 0.46153260377503086,
+        "STOP_AND_ESCALATE": 0.12926230629204782
+      }
+    },
+    {
+      "name": "bank-upi-pending",
+      "context": {
+        "caseId": "parity_3",
+        "subscription": {
+          "id": "sub_3",
+          "status": "pending",
+          "amountMinor": 29900,
+          "ageDays": 75,
+          "nativeRetryPossible": true
+        },
+        "failure": {
+          "category": "BANK_OR_NETWORK",
+          "reason": null,
+          "source": "bank",
+          "step": null,
+          "paymentMethod": "upi",
+          "failureCount": 2,
+          "consecutiveFailureCount": 2
+        },
+        "customerHistory": {
+          "previousSuccessfulPayments": 5,
+          "previousFailedPayments": 3,
+          "previousRecoveredPayments": 2,
+          "previousRecoveryRate": 0.666667,
+          "previousNudges": 1,
+          "hoursSinceLastNudge": 30
+        },
+        "diagnosis": {
+          "classifierVersion": "classifier-v1",
+          "confidence": "MEDIUM",
+          "explanation": "Parity"
+        },
+        "downtime": {
+          "checked": true,
+          "active": false,
+          "method": "upi",
+          "severity": "medium",
+          "matchLevel": "METHOD_ONLY"
+        },
+        "caseState": {
+          "caseAgeHours": 8,
+          "revenueAtRiskMinor": 29900,
+          "previousActions": []
+        }
+      },
+      "expectedProbabilities": {
+        "WAIT_NATIVE_RETRY": 0.878157973845493,
+        "SEND_NUDGE": 0.5154293607405757,
+        "REQUEST_CARD_UPDATE": 0.2798579770807729,
+        "STOP_AND_ESCALATE": 0.26933451448799406
+      }
+    },
+    {
+      "name": "unknown-categories-safe",
+      "context": {
+        "caseId": "parity_4",
+        "subscription": {
+          "id": "sub_4",
+          "status": "unknown",
+          "amountMinor": 69900,
+          "ageDays": 3,
+          "nativeRetryPossible": false
+        },
+        "failure": {
+          "category": "UNKNOWN",
+          "reason": null,
+          "source": null,
+          "step": null,
+          "paymentMethod": "unknown",
+          "failureCount": 1,
+          "consecutiveFailureCount": 1
+        },
+        "customerHistory": {
+          "previousSuccessfulPayments": 0,
+          "previousFailedPayments": 0,
+          "previousRecoveredPayments": 0,
+          "previousRecoveryRate": 0.0,
+          "previousNudges": 0,
+          "hoursSinceLastNudge": null
+        },
+        "diagnosis": {
+          "classifierVersion": "classifier-v1",
+          "confidence": "LOW",
+          "explanation": "Parity"
+        },
+        "downtime": {
+          "checked": false,
+          "active": false,
+          "method": null,
+          "severity": null,
+          "matchLevel": "UNKNOWN"
+        },
+        "caseState": {
+          "caseAgeHours": 2,
+          "revenueAtRiskMinor": 69900,
+          "previousActions": []
+        }
+      },
+      "expectedProbabilities": {
+        "WAIT_NATIVE_RETRY": 0.3608419144886723,
+        "SEND_NUDGE": 0.3571070097621572,
+        "REQUEST_CARD_UPDATE": 0.38953590913274844,
+        "STOP_AND_ESCALATE": 0.24392879609524398
+      }
+    }
+  ]
+}

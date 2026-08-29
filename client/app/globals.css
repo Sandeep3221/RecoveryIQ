@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+:root { color-scheme: light; --ink: #10231c; --muted: #596861; --line: #d7e2dc; --accent: #087a55; --accent-soft: #e8f5ef; --canvas: #f4f7f5; --surface: #ffffff; }
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body { margin: 0; background: var(--canvas); color: var(--ink); }
+a, button { touch-action: manipulation; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+::selection { background: #bce9d5; color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .animate-pulse { animation: none; } }

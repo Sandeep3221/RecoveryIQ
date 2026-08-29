@@ -1,0 +1,35 @@
+{
+  "name": "recoveryiq-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json && node scripts/copyScorerArtifacts.mjs",
+    "start": "node dist/src/index.js",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx scripts/seedCloudDesk.ts",
+    "razorpay:setup-plans": "tsx scripts/setupRazorpayPlans.ts",
+    "evaluation:policy": "tsx scripts/runPolicyEvaluation.ts",
+    "demo:status": "tsx scripts/demoStatus.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2",
+    "razorpay": "^2.9.8",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.13.14",
+    "@types/supertest": "^7.2.1",
+    "mongodb-memory-server": "^11.2.0",
+    "supertest": "^7.2.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^4.1.11"
+  }
+}
