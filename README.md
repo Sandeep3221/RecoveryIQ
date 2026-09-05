@@ -1,7 +1,6 @@
 # RecoveryIQ
 
 RecoveryIQ is context-aware revenue recovery for failed recurring payments: **ML predicts. Policy controls. Razorpay confirms the outcome.**
-
 ## Problem
 
 Recurring payments fail for different reasons, but naive recovery systems often retry or contact every customer the same way. That can create unnecessary customer friction, repeat impossible actions, and overstate what an ML score is allowed to decide.
