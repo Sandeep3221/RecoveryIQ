@@ -14,7 +14,6 @@ Razorpay failure -> verified webhook -> FailureEvent -> diagnosis
 -> RecoveryContext -> scorer -> policy-v1 -> RecoveryDecision
 -> bounded action -> authoritative outcome -> observed revenue metrics
 ```
-
 ## Core Architecture
 
 - Failure evidence is normalized from verified, deduplicated Razorpay webhooks.
