@@ -44,7 +44,6 @@ P(recovery within 7 days | recovery context, candidate action)
 It fits this product because the inputs are structured, output probabilities are useful for ranking, coefficients remain interpretable, the artifact is portable JSON, and inference is small and fast. The model is trained on published synthetic episodes because production merchant histories were unavailable. It is not described as advanced AI or as proof of merchant uplift.
 
 ## Policy Safety Layer
-
 The model does not control the financial workflow. `policy-v1` blocks or selects actions using terminal status, case age, mandate validity, payment-method validity, downtime, native retry feasibility, nudge limits, cooldown, and repeated unknown-failure rules. Only allowed actions can be ranked by a scorer.
 
 In the Stage 9 controlled simulation, deterministic policy blocked the raw ML winner in **29.69%** of contexts.
